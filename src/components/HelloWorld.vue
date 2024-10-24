@@ -97,11 +97,12 @@ a {
   <div class="button1-1">
     <button @click="fetchData">CARREGAR DADOS</button>
   </div>
-  <div class="button2-2">
-    <button @click="fetch_feche">FECHAR DADOS</button>
-  </div>
+  
   <div class="button3-3">
     <button @click="fetch_carregar">ENVIAR DADO</button>
+  </div>
+  <div class="button2-2">
+    <button @click="fetch_feche">FECHAR DADOS</button>
   </div>
   
   <table class="mt-5 table">
@@ -128,20 +129,20 @@ export default {
     };
   },
   methods: {
-    async fetch_carregar(){
-    fetch('https://jsonplaceholder.typicode.com/comments',{
-      method:'post',
-      body: JSON.stringify({
-        posId:'2037',
-        id:'234',
-        name:'paralelepipedo',
-        email:'paralelepipedo.gmail.com',
-        body:'dolor veritatis ipsum accusamus quae voluptates sint voluptatum et\nharum saepe dolorem enim\nexpedita placeat qui quidem aut et et est\nminus odit qui possimus qui saepe'
-        })
-      })
-      .then(response => response.json())
-      .then(json => console.log('form data',json));
-    },
+    // async fetch_carregar(){
+    // fetch('https://jsonplaceholder.typicode.com/comments',{
+    //   method:'post',
+    //   body: JSON.stringify({
+    //     posId:'2037',
+    //     id:'234',
+    //     name:'paralelepipedo',
+    //     email:'paralelepipedo.gmail.com',
+    //     body:'dolor veritatis ipsum accusamus quae voluptates sint voluptatum et\nharum saepe dolorem enim\nexpedita placeat qui quidem aut et et est\nminus odit qui possimus qui saepe'
+    //     })
+    //   })
+    //   .then(response => response.json())
+    //   .then(json => console.log('form data',json));
+    // },
     async fetchData() {
       try {
         const response = await fetch('https://jsonplaceholder.typicode.com/comments');
