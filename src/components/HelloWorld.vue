@@ -93,9 +93,12 @@ a {
 
 
 <template>
-  <div>
+
     <h1>Dados do fetch</h1>
+  <div class="button1-1">
+    <button @click="fetchData">CARREGAR DADOS</button>
   </div>
+  
   <table class="mt-5 table">
     <thead>
       <tr>
@@ -112,7 +115,6 @@ a {
       </tr>
     </tbody>
   </table>
-  <button @click="fetchData">carregar dados</button>
   </template>
   
   <script>
@@ -121,6 +123,11 @@ a {
     props: {
       msg: String
     },
+    data() {
+    return {
+      items: []
+    };
+  },
     methods: {
       async fetchData() {
         try {
@@ -138,10 +145,35 @@ a {
   }
   </script>
 <style>
-table{
-  color:blue;
+.imagem-xd {
+    max-width: 130px;
+    height: auto;
+}
+
+.button1-1 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: black;
+  margin-top: 60px;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table {
+  color: black;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+button {
+  font-size: 16px;
+  padding: 15px 30px;
+  margin-bottom: 30px;
 }
 </style>
