@@ -129,30 +129,51 @@ export default {
     };
   },
   methods: {
-    // async fetch_carregar(){
-    // fetch('https://jsonplaceholder.typicode.com/comments',{
-    //   method:'post',
-    //   body: JSON.stringify({
-    //     posId:'2037',
-    //     id:'234',
-    //     name:'paralelepipedo',
-    //     email:'paralelepipedo.gmail.com',
-    //     body:'dolor veritatis ipsum accusamus quae voluptates sint voluptatum et\nharum saepe dolorem enim\nexpedita placeat qui quidem aut et et est\nminus odit qui possimus qui saepe'
-    //     })
-    //   })
-    //   .then(response => response.json())
-    //   .then(json => console.log('form data',json));
-    // },
+    // Função corrigida para enviar dados e adicionar a resposta à lista 'items'
+    async fetch_carregar() {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/comments', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            postId: '2037',
+            id: '234',
+            name: 'paralelepipedo',
+            email: 'paralelepipedo@gmail.com',
+            body: 'dolor veritatis ipsum accusamus quae voluptates sint voluptatum et\nharum saepe dolorem enim\nexpedita placeat qui quidem aut et et est\nminus odit qui possimus qui saepe'
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`Erro na requisição: ${response.statusText}`);
+        }
+
+        const newItem = await response.json();
+        this.items.push(newItem); // Adiciona o item recebido à lista 'items'
+        console.log('Dados atualizados:', this.items);
+      } catch (error) {
+        console.error('Erro ao carregar os dados:', error);
+      }
+    },
+    
+    // Função para buscar dados e substituir a lista 'items'
     async fetchData() {
       try {
         const response = await fetch('https://jsonplaceholder.typicode.com/comments');
+        if (!response.ok) {
+          throw new Error(`Erro na requisição: ${response.statusText}`);
+        }
         const data = await response.json();
         this.items = data;
         console.log(this.items);
       } catch (error) {
-        console.error;
+        console.error('Erro ao buscar os dados:', error);
       }
     },
+
+    // Função para limpar a lista 'items'
     fetch_feche() {
       this.items = [];
     }
