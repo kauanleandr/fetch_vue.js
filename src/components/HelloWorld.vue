@@ -1,13 +1,15 @@
 <template>
   <h1>nem precisa explicar</h1>
+
+  <div class="button1-1">
+    <button @click="fetch_carregar">ENVIAR DADO</button>
+  </div>
+
   <div class="button1-1">
     <button @click="fetchData">CARREGAR DADOS</button>
   </div>
-  
-  <div class="button3-3">
-    <button @click="fetch_carregar">ENVIAR DADO</button>
-  </div>
-  <div class="button2-2">
+
+  <div class="button1-1">
     <button @click="fetch_feche">FECHAR DADOS</button>
   </div>
   
@@ -92,20 +94,7 @@ button {
   text-align: center;
   color: black;
   margin-top: 0px;
-}
-.button2-2 {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: black;
-  margin-top: 0px;
-}
-.button3-3{
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: black;
-  margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 h1 {
@@ -114,10 +103,16 @@ h1 {
   justify-content: center;
 }
 
-table {
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
   color: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: center;
 }
 </style>
