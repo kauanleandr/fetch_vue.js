@@ -1,6 +1,4 @@
 <template>
-  <h1>nem precisa explicar</h1>
-
   <div class="button1-1">
     <button @click="fetch_carregar">ENVIAR DADO</button>
   </div>
@@ -13,16 +11,20 @@
     <button @click="fetch_feche">FECHAR DADOS</button>
   </div>
   
-  <table class="mt-5 table">
+  <div class="tabela">
 
-    <tbody>
-      <tr v-for="item in items" :key="item.id">
-        <td>{{ item.name }}</td>
-        <td>{{ item.email }}</td>
-        <td>{{ item.body }}</td>
-      </tr>
-    </tbody>
-  </table>
+    <table class="mt-5 table">
+
+<tbody>
+  <tr v-for="item in items" :key="item.id">
+    <td>{{ item.name }}</td>
+    <td>{{ item.email }}</td>
+    <td>{{ item.body }}</td>
+  </tr>
+</tbody>
+</table>
+
+  </div>
 </template>
 
 <script>
@@ -78,29 +80,32 @@ export default {
 }
 </script>
 <style>
+
+.tabela{
+
+  margin-top: 20px;
+
+}
+
 .imagem-xd {
-    max-width: 130px;
-    height: auto;
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-width: 200px;
+  height: auto;
+  text-align: center
 }
 
 button {
   font-size: 16px;
-  padding: 10px 20px;
-  margin-bottom: 10px;
+  padding: 10px 10px;
 }
 .button1-1 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: black;
-  margin-top: 0px;
-  margin-bottom: 20px;
-}
-
-h1 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: 30px;
 }
 
 .table td {
